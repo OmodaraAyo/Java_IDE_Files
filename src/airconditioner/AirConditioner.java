@@ -1,34 +1,34 @@
 package airconditioner;
 
 public class AirConditioner {
-    private boolean on, off;
-    private int temperature = 16;
+    private boolean on = false;
+    private int minimumTemperature = 16;
+    private int maximumTemperature = 30;
 
     public AirConditioner() {
-        this.on = true;
-        this.off = false;
     }
     public boolean setOn() {
+        on = true;
         return on;
     }
     public boolean setOff(){
-        return off;
+        return false;
     }
-    public int getTemperature() {
-        return temperature;
+    public int getMinimumTemperature() {
+        return minimumTemperature;
     }
     public void increaseTemperature(int temperature){
         boolean acIsturnOn = setOn();
         if(acIsturnOn) {
-            this.temperature = this.temperature + temperature;
-            if (this.temperature > 30) this.temperature = 30;
+            this.minimumTemperature = this.minimumTemperature + temperature;
+            if (this.minimumTemperature > maximumTemperature) this.minimumTemperature = maximumTemperature;
         }
     }
     public void decreaseTemperature(int temperature){
         boolean acIsturnOn = setOn();
         if(acIsturnOn) {
-            this.temperature = this.temperature - temperature;
-            if (this.temperature < 16) this.temperature = 16;
+            this.minimumTemperature = this.minimumTemperature - temperature;
+            if (this.minimumTemperature < 16) this.minimumTemperature = 16;
         }
     }
 }

@@ -20,15 +20,15 @@ public class AirConditionerTest {
         AirConditioner ac = new AirConditioner();
         assertTrue(ac.setOn());
         ac.increaseTemperature(13);
-        assertEquals(29, ac.getTemperature());
+        assertEquals(29, ac.getMinimumTemperature());
     }
     @Test
     public void testToDecrease_Temperature(){
         AirConditioner ac = new AirConditioner();
         assertTrue(ac.setOn());
         ac.increaseTemperature(1);
-        assertEquals(17, ac.getTemperature());
+        assertEquals(17, ac.getMinimumTemperature());
         ac.decreaseTemperature(9);
-        assertEquals(16, ac.getTemperature());
+        assertEquals(16, ac.getMinimumTemperature());
     }
 }
